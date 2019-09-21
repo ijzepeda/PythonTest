@@ -1,5 +1,5 @@
 import pygame, sys, time, random
-from pygame.locals import QUIT, KEYDOWN, K_LEFT, K_RIGHT,K_UP,K_DOWN,K_a,K_d
+from pygame.locals import QUIT, KEYDOWN, K_LEFT, K_RIGHT,K_UP,K_DOWN,K_a,K_d, K_DOWN
 BLUE = (  0,   0, 155)
 BOX_SIZE = 20
 SCREEN_WIDTH = 640
@@ -33,11 +33,59 @@ O_SHAPE_TEMPLATE = [['.....',
                      '.cc..',
                      '.cc..',
                      '.....']]
+T_SHAPE = [['.....',
+            '.....',
+            '..c..',
+            '.ccc.',
+            '.....'],
+            ['.....',
+            '..c..',
+            '..cc.',
+            '..c..',
+            '.....'],
+            ['.....',
+            '.....',
+            '.ccc.',
+            '..c..',
+            '.....'],
+            ['.....',
+            '..c..',
+            '.cc..',
+            '..c..',
+            '.....'],
+            ]
+L_SHAPE = [['.....',
+            '..c..',
+            '..c..',
+            '..cc.',
+            '.....'],
+            ['.....',
+            '.....',
+            '.ccc.',
+            '.c...',
+            '.....'],
+            ['.....',
+            '..cc.',
+            '...c.',
+            '...c.',
+            '.....'],
+            ['.....',
+            '.....',
+            '...c.',
+            '.ccc.',
+            '.....']
+            ]
+
+
+
+
 def available_tetris_pieces():
     return {
         'S':S_SHAPE_TEMPLATE,
         'I':I_SHAPE_TEMPLATE,
-        'O':O_SHAPE_TEMPLATE
+        'O':O_SHAPE_TEMPLATE,
+        'L':L_SHAPE,
+        'T':T_SHAPE
     }
 
 def run_tetris_game():
@@ -150,6 +198,8 @@ def listen_to_user_input(game_matrix,piece):
                 piece['rotation'] = (piece['rotation']+1) % len(available_tetris_pieces()[piece['shape']])
                 if not isValidPosition(game_matrix, piece):
                     piece['rotation'] = (piece['rotation']-1) % len(available_tetris_pieces()[piece['shape']])
+            elif (event.key==K_DOWN):
+                piece['row']+=1
 
 def isOnBoard(row, column):
     return column >= 0 and column < 10 and row < 20
