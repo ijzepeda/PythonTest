@@ -42,11 +42,34 @@ Also, it works with CVS files, saving data into a normal cvs
 /email and cvs
 ```
 
-## SCRAPE SITES
-Simple scraping, detecting html tags. 
-It also shows how to do it with JavaScript, for it is requires to install a plugin for your specific browser [in the file it inlcudes the code for firefox and chrome]
+## GAME OF LIFE
+Basic logic of the game of life. 
+It requires a better window handling, instead of re-printing the whole screen
+```
+/GameOfLife
+gameofLife.py
+```
+
+
+
+## AHORCADO
+Im not really sure the name of this game in english. Is about finding the missing letters.
+Basic loops and strings
+```
+ahorcado.py
+```
+
+## GRAPHICS
+Using Matplot library to test graphics of some generated data.
 
 ```
-/scraping
-/scrapeSite
+matplotlibTest.py
+```
+
+## TETRIS
+There are two files for the game. _Tetris/_2_ is a "finished version", but the first one has more comments of it process
+
+```
+tetris.py
+tetris_2.py
 ```
